@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link to some tailwinds css -->
+    <link href="./output.css" rel="stylesheet">
+    <!-- 
+        below is the typescript version.
+        It appeared that the JS code given in the application assignment was written in TS...
+        That's fine, but you would need to compile it into javascript to use the typescript as an inline script in html.
+        There is an open source tool I found for that purpose and it is included, commented out at the bottom.
+    -->
+    <!-- 
+    <script type="text/typescript">
+
+        const numToCheck = 10;
+        var value = 0;
+        const increment = 1;
+
+        const checkEnoughClicks = (num: Number) => {
+                if (num >= numToCheck) {
+                    return ("Enough Clicks");
+                } else {
+                    return ("Not Enough Clicks");
+                }
+        };
+        
+        const clickHandler = (event: MouseEvent) => {
+            value += increment;
+            console.log(event, checkEnoughClicks(value));
+        };
+    </script> 
+    -->
+
+    <!--  -->
+
+    <!-- changed from typescript to regular old JavaScript... The instructions were indeed to use Javascript... -->
+    <script >
+        // moved variables to global scope
+        const numToCheck = 10;
+        // changed value from const to var, so it can be incremented
+        var value = 0;
+        const increment = 1;
+
+        const checkEnoughClicks = (num) => {
+                if (num >= numToCheck) {
+                    return ("Enough Clicks");
+                } else {
+                    return ("Not Enough Clicks");
+                }
+        };
+        
+        const clickHandler = (event) => {
+            value += increment;
+            console.log(event, checkEnoughClicks(value));
+        };
+    </script> 
+    
+</head>
+    <body>
+        <!-- tailwinds class inline styling: only a very simple version, using inline styling imported directly from tailwinds in head link. otherwise you would need to import the tailwinds into a css file... -->
+        <!-- button's onClick event handler calls the clickHandler function from the script in the head of the html, whether typescript or javascript and explicitly passes the event. -->
+        <div >
+            <button class=" py-9 px-9 max-w-sm mx-auto delay-150 bg-blue2 font-mono text-white hover:bg-blue hover:text-black hover:animate-wiggle rounded-2xl shadow-2xl sm:flex " 
+                    onClick="clickHandler(event)">
+                Big Blue Button
+            </button>
+        </div>
+    </body>
+
+<!-- the scripts below would import a typescipt compiler to run typescript as an inline script, if you wanted to do that. -->
+<!-- 
+<script type="text/javascript" src="./../typescript-compile/typescript.min.js"></script>
+<script type="text/javascript" src="./../typescript-compile/typescript.compile.min.js"></script> -->
+</html>
